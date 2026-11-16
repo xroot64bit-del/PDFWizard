@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>PDF Wizard – Kelola, Edit, dan Konversi PDF di Windows</title>
-<meta name="description" content="PDF Wizard: aplikasi desktop Windows untuk menyusun halaman PDF, mengedit teks dan gambar di dalam PDF, lalu mengekspor ke DOCX, HTML, dan Markdown. Berjalan offline.">
-<meta property="og:title" content="PDF Wizard – Kelola, Edit, dan Konversi PDF">
-<meta property="og:description" content="Susun halaman, edit teks &amp; gambar di dalam PDF, ekspor ke DOCX, HTML, dan Markdown. Offline, di komputer Anda.">
-<meta property="og:type" content="website">
+<meta content="PDF Wizard: aplikasi desktop Windows untuk menyusun halaman PDF, mengedit teks dan gambar di dalam PDF, lalu mengekspor ke DOCX, HTML, dan Markdown. Berjalan offline." name="description"/>
+<meta content="PDF Wizard – Kelola, Edit, dan Konversi PDF" property="og:title"/>
+<meta content="Susun halaman, edit teks &amp; gambar di dalam PDF, ekspor ke DOCX, HTML, dan Markdown. Offline, di komputer Anda." property="og:description"/>
+<meta content="website" property="og:type"/>
 <style>
 :root{
   --bg:#f6f8fc;--surface:#fff;--ink:#14213d;--muted:#5b6b86;--line:#e3e8f2;
@@ -45,6 +46,17 @@ header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--b
 .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px}
 .btn.lg{padding:16px 32px;font-size:18px}
 
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.lang button{border:0;background:none;color:var(--muted);font:700 13px system-ui,sans-serif;padding:8px 13px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--brand);color:#fff}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px;margin:38px auto 0}
+.pc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;text-align:center}
+.pc.hl{border:2px solid var(--brand);box-shadow:var(--shadow)}
+.pc .amt{font-size:40px;font-weight:800;letter-spacing:-.02em;margin:8px 0 2px}
+.pc p{margin:0 0 16px;color:var(--muted)}
+.mail{margin-top:26px;padding:22px;border:1px dashed var(--brand);border-radius:var(--r);background:var(--brand-soft)}
+.mail p{margin:0 0 12px}.mail .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mail code{font:700 16px ui-monospace,Consolas,monospace;background:var(--surface);border:1px solid var(--line);padding:8px 12px;border-radius:9px;word-break:break-all}
 /* hero */
 .hero{padding:70px 0 40px;background:radial-gradient(900px 380px at 80% -10%,color-mix(in srgb,var(--accent) 22%,transparent),transparent),radial-gradient(800px 380px at 5% 0,color-mix(in srgb,var(--brand) 20%,transparent),transparent)}
 .hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
@@ -118,6 +130,7 @@ footer{padding:34px 0 46px;color:var(--muted);font-size:14px;text-align:center}
   .nav nav a:not(.btn){display:none}
 }
 @media(max-width:600px){
+  .price{grid-template-columns:1fr}
   .features,.steps{grid-template-columns:1fr}
   section{padding:54px 0}.hero{padding-top:44px}
   .btn.lg{width:100%;justify-content:center}
@@ -126,100 +139,96 @@ footer{padding:34px 0 46px;color:var(--muted);font-size:14px;text-align:center}
 </style>
 </head>
 <body>
-<a class="skip" href="#fitur">Lewati ke konten</a>
-
+<a class="skip" data-t="0" href="#fitur">Lewati ke konten</a>
 <header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#"><i aria-hidden="true">PW</i>PDF Wizard</a>
-    <nav aria-label="Navigasi utama">
-      <a href="#fitur">Fitur</a>
-      <a href="#cara">Cara kerja</a>
-      <a href="#ekspor">Ekspor</a>
-      <a href="#aktivasi">Aktivasi</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn primary sm" href="https://bit.ly/4AuMDwj" target="_blank" rel="noopener">Unduh</a>
-    </nav>
-  </div>
+<div class="wrap">
+<a class="logo" href="#"><i aria-hidden="true">PW</i>PDF Wizard</a>
+<nav aria-label="Navigasi utama">
+<a data-t="1" href="#fitur">Fitur</a>
+<a data-t="2" href="#cara">Cara kerja</a>
+<a data-t="3" href="#ekspor">Ekspor</a>
+<a data-t="4" href="#aktivasi">Aktivasi</a>
+<a data-t="5" href="#harga">Harga</a>
+<a data-t="6" href="#faq">FAQ</a>
+<div aria-label="Bahasa / Language" class="lang" role="group"><button aria-pressed="true" data-lang="id" type="button">ID</button><button aria-pressed="false" data-lang="en" type="button">EN</button></div>
+<a class="btn primary sm" data-t="7" href="https://bit.ly/4AuMDwj" rel="noopener" target="_blank">Unduh</a>
+</nav>
+</div>
 </header>
-
 <main>
 <!-- HERO -->
 <div class="hero">
-  <div class="wrap grid">
-    <div>
-      <span class="badge">Aplikasi desktop Windows · Offline</span>
-      <h1>Kelola, edit, dan konversi PDF <span>dalam satu aplikasi</span></h1>
-      <p class="lead">PDF Wizard membantu Anda menyusun ulang halaman, mengedit teks dan gambar di dalam PDF, lalu mengekspornya ke DOCX, HTML, atau Markdown. Semua diproses di komputer Anda sendiri.</p>
-      <div class="cta">
-        <a class="btn primary lg" href="https://bit.ly/4AuMDwj" target="_blank" rel="noopener">⬇ Unduh PDF Wizard</a>
-        <a class="btn ghost lg" href="#fitur">Lihat fitur</a>
-      </div>
-      <p class="note">Tersedia untuk Windows (32-bit dan 64-bit). Menerapkan hasil Edit Page dan Export DOCX memerlukan activation key.</p>
-      <ul class="pills">
-        <li>Tanpa unggah file</li><li>Cepat &amp; ringan</li><li>Tema terang &amp; gelap</li>
-      </ul>
-    </div>
-
-    <div class="app" role="img" aria-label="Ilustrasi tampilan PDF Wizard: kisi thumbnail halaman dengan bilah alat di atas">
-      <div class="bar"><b class="p">+ Open</b><b>Append</b><b>Undo</b><b>Redo</b><b class="a">Select</b><b>Reorder</b><b class="p">Save</b><b>Export DOCX</b></div>
-      <div class="cards">
-        <div class="card"><small>#1</small><div class="page"><s class="h"></s><s class="w"></s><s></s><s class="i"></s><s class="n"></s></div></div>
-        <div class="card sel"><small>#2 img txt</small><div class="page"><s class="h"></s><s></s><s class="w"></s><s></s><s class="n"></s></div></div>
-        <div class="card"><small>#3 R90</small><div class="page"><s class="h"></s><s class="i"></s><s class="w"></s><s></s></div></div>
-        <div class="card"><small>#4 crop</small><div class="page"><s class="h"></s><s></s><s></s><s class="w"></s><s class="n"></s></div></div>
-        <div class="card"><small>#5</small><div class="page"><s class="h"></s><s class="w"></s><s class="i"></s><s></s></div></div>
-        <div class="card"><small>#6</small><div class="page"><s class="h"></s><s></s><s class="w"></s><s class="n"></s></div></div>
-      </div>
-      <div class="status">6 halaman · 2 sumber · Siap</div>
-    </div>
-  </div>
+<div class="wrap grid">
+<div>
+<span class="badge" data-t="8">Aplikasi desktop Windows · Offline</span>
+<h1 data-t="9">Kelola, edit, dan konversi PDF <span>dalam satu aplikasi</span></h1>
+<p class="lead" data-t="10">PDF Wizard membantu Anda menyusun ulang halaman, mengedit teks dan gambar di dalam PDF, lalu mengekspornya ke DOCX, HTML, atau Markdown. Semua diproses di komputer Anda sendiri.</p>
+<div class="cta">
+<a class="btn primary lg" data-t="11" href="https://bit.ly/4AuMDwj" rel="noopener" target="_blank">⬇ Unduh PDF Wizard</a>
+<a class="btn ghost lg" data-t="12" href="#fitur">Lihat fitur</a>
 </div>
-
+<p class="note" data-t="13">Tersedia untuk Windows (32-bit dan 64-bit). Menerapkan hasil Edit Page dan Export DOCX memerlukan activation key berbayar (lihat <a href="#harga">harga aktivasi</a>).</p>
+<ul class="pills">
+<li data-t="14">Tanpa unggah file</li><li data-t="15">Cepat &amp; ringan</li><li data-t="16">Tema terang &amp; gelap</li>
+</ul>
+</div>
+<div aria-label="Ilustrasi tampilan PDF Wizard: kisi thumbnail halaman dengan bilah alat di atas" class="app" role="img">
+<div class="bar"><b class="p">+ Open</b><b>Append</b><b>Undo</b><b>Redo</b><b class="a">Select</b><b>Reorder</b><b class="p">Save</b><b>Export DOCX</b></div>
+<div class="cards">
+<div class="card"><small>#1</small><div class="page"><s class="h"></s><s class="w"></s><s></s><s class="i"></s><s class="n"></s></div></div>
+<div class="card sel"><small>#2 img txt</small><div class="page"><s class="h"></s><s></s><s class="w"></s><s></s><s class="n"></s></div></div>
+<div class="card"><small>#3 R90</small><div class="page"><s class="h"></s><s class="i"></s><s class="w"></s><s></s></div></div>
+<div class="card"><small>#4 crop</small><div class="page"><s class="h"></s><s></s><s></s><s class="w"></s><s class="n"></s></div></div>
+<div class="card"><small>#5</small><div class="page"><s class="h"></s><s class="w"></s><s class="i"></s><s></s></div></div>
+<div class="card"><small>#6</small><div class="page"><s class="h"></s><s></s><s class="w"></s><s class="n"></s></div></div>
+</div>
+<div class="status" data-t="87">6 halaman · 2 sumber · Siap</div>
+</div>
+</div>
+</div>
 <!-- FITUR -->
-<section id="fitur" aria-labelledby="t-fitur">
-  <div class="wrap">
-    <div class="eyebrow">Fitur</div>
-    <h2 id="t-fitur">Semua yang Anda butuhkan untuk bekerja dengan PDF</h2>
-    <p class="sub">Dari merapikan urutan halaman sampai mengedit isinya, tanpa berpindah-pindah aplikasi.</p>
-    <div class="features">
-      <article class="feat"><div class="ico" aria-hidden="true">▦</div><h3>Susun halaman secara visual</h3><p>Lihat setiap halaman sebagai thumbnail. Seret untuk mengubah urutan, pilih halaman ganjil/genap, balik urutan, tukar ganjil-genap, lengkap dengan Undo/Redo.</p></article>
-      <article class="feat"><div class="ico" aria-hidden="true">⇄</div><h3>Gabung &amp; pecah</h3><p>Gabungkan beberapa PDF dan gambar (PNG, JPEG, BMP). Ekstrak halaman terpilih menjadi satu PDF, atau pecah menjadi satu file per halaman.</p></article>
-      <article class="feat"><div class="ico" aria-hidden="true">✎</div><h3>Edit teks dan gambar di dalam PDF</h3><p>Ubah isi, font, ukuran, dan warna teks; tambah, hapus, atau pindahkan. Pindah, ubah ukuran, putar, atau ganti gambar. Dilengkapi zoom agar presisi.</p></article>
-      <article class="feat"><div class="ico" aria-hidden="true">W</div><h3>Ekspor ke DOCX</h3><p>Setiap halaman menjadi satu halaman Word dengan tata letak yang dijaga. Teks tetap bisa dipilih dan diedit di Word.</p></article>
-      <article class="feat"><div class="ico" aria-hidden="true">&lt;/&gt;</div><h3>Ekspor ke HTML &amp; Markdown</h3><p>Tombol “To Data” membuat folder per halaman berisi <code>index.html</code>, <code>index.md</code>, dan folder gambar hasil ekstraksi.</p></article>
-      <article class="feat"><div class="ico" aria-hidden="true">⟲</div><h3>Rotasi, crop, skala, booklet</h3><p>Putar, potong, dan skalakan halaman terpilih. Tambahkan overlay/underlay, buat booklet cetak lipat, dan atur metadata dokumen.</p></article>
-    </div>
-  </div>
+<section aria-labelledby="t-fitur" id="fitur">
+<div class="wrap">
+<div class="eyebrow" data-t="17">Fitur</div>
+<h2 data-t="18" id="t-fitur">Semua yang Anda butuhkan untuk bekerja dengan PDF</h2>
+<p class="sub" data-t="19">Dari merapikan urutan halaman sampai mengedit isinya, tanpa berpindah-pindah aplikasi.</p>
+<div class="features">
+<article class="feat"><div aria-hidden="true" class="ico">▦</div><h3 data-t="20">Susun halaman secara visual</h3><p data-t="21">Lihat setiap halaman sebagai thumbnail. Seret untuk mengubah urutan, pilih halaman ganjil/genap, balik urutan, tukar ganjil-genap, lengkap dengan Undo/Redo.</p></article>
+<article class="feat"><div aria-hidden="true" class="ico">⇄</div><h3 data-t="22">Gabung &amp; pecah</h3><p data-t="23">Gabungkan beberapa PDF dan gambar (PNG, JPEG, BMP). Ekstrak halaman terpilih menjadi satu PDF, atau pecah menjadi satu file per halaman.</p></article>
+<article class="feat"><div aria-hidden="true" class="ico">✎</div><h3 data-t="24">Edit teks dan gambar di dalam PDF</h3><p data-t="25">Ubah isi, font, ukuran, dan warna teks; tambah, hapus, atau pindahkan. Pindah, ubah ukuran, putar, atau ganti gambar. Dilengkapi zoom agar presisi.</p></article>
+<article class="feat"><div aria-hidden="true" class="ico">W</div><h3 data-t="26">Ekspor ke DOCX</h3><p data-t="27">Setiap halaman menjadi satu halaman Word dengan tata letak yang dijaga. Teks tetap bisa dipilih dan diedit di Word.</p></article>
+<article class="feat"><div aria-hidden="true" class="ico">&lt;/&gt;</div><h3 data-t="28">Ekspor ke HTML &amp; Markdown</h3><p data-t="29">Tombol “To Data” membuat folder per halaman berisi <code>index.html</code>, <code>index.md</code>, dan folder gambar hasil ekstraksi.</p></article>
+<article class="feat"><div aria-hidden="true" class="ico">⟲</div><h3 data-t="30">Rotasi, crop, skala, booklet</h3><p data-t="31">Putar, potong, dan skalakan halaman terpilih. Tambahkan overlay/underlay, buat booklet cetak lipat, dan atur metadata dokumen.</p></article>
+</div>
+</div>
 </section>
-
 <!-- CARA KERJA -->
-<section id="cara" class="alt" aria-labelledby="t-cara">
-  <div class="wrap">
-    <div class="eyebrow">Cara kerja</div>
-    <h2 id="t-cara">Tiga langkah, selesai</h2>
-    <div class="steps">
-      <div class="step"><h3>Buka &amp; susun</h3><p>Seret file PDF atau gambar ke jendela, lalu rapikan halaman dengan drag &amp; drop, rotasi, crop, atau hapus.</p></div>
-      <div class="step"><h3>Edit halaman</h3><p>Pilih satu halaman dan buka Edit Page untuk mengubah teks dan gambar langsung di dalam halaman.</p></div>
-      <div class="step"><h3>Simpan atau ekspor</h3><p>Simpan sebagai PDF baru, atau ekspor ke DOCX, HTML, dan Markdown sesuai kebutuhan.</p></div>
-    </div>
-  </div>
+<section aria-labelledby="t-cara" class="alt" id="cara">
+<div class="wrap">
+<div class="eyebrow" data-t="32">Cara kerja</div>
+<h2 data-t="33" id="t-cara">Tiga langkah, selesai</h2>
+<div class="steps">
+<div class="step"><h3 data-t="34">Buka &amp; susun</h3><p data-t="35">Seret file PDF atau gambar ke jendela, lalu rapikan halaman dengan drag &amp; drop, rotasi, crop, atau hapus.</p></div>
+<div class="step"><h3 data-t="36">Edit halaman</h3><p data-t="37">Pilih satu halaman dan buka Edit Page untuk mengubah teks dan gambar langsung di dalam halaman.</p></div>
+<div class="step"><h3 data-t="38">Simpan atau ekspor</h3><p data-t="39">Simpan sebagai PDF baru, atau ekspor ke DOCX, HTML, dan Markdown sesuai kebutuhan.</p></div>
+</div>
+</div>
 </section>
-
 <!-- EKSPOR -->
-<section id="ekspor" aria-labelledby="t-ekspor">
-  <div class="wrap two">
-    <div>
-      <div class="eyebrow">Ekspor data</div>
-      <h2 id="t-ekspor">Dari PDF ke format yang bisa Anda olah</h2>
-      <p class="sub">Pilih halaman yang ingin diambil, lalu klik <b>To Data</b>. Hasilnya tertata rapi per halaman.</p>
-      <ul class="checks">
-        <li><b>HTML</b> dengan posisi teks dan gambar yang mengikuti PDF asli.</li>
-        <li><b>Markdown</b> berisi judul, paragraf, daftar, dan referensi gambar.</li>
-        <li><b>Gambar</b> yang ada di halaman diekstrak sebagai resource.</li>
-        <li><b>DOCX</b> satu section per halaman dengan ukuran halaman yang sama.</li>
-      </ul>
-    </div>
-    <pre class="out" aria-label="Contoh struktur folder hasil ekspor"><u>resep_makanan/</u>
+<section aria-labelledby="t-ekspor" id="ekspor">
+<div class="wrap two">
+<div>
+<div class="eyebrow" data-t="40">Ekspor data</div>
+<h2 data-t="41" id="t-ekspor">Dari PDF ke format yang bisa Anda olah</h2>
+<p class="sub" data-t="42">Pilih halaman yang ingin diambil, lalu klik <b>To Data</b>. Hasilnya tertata rapi per halaman.</p>
+<ul class="checks">
+<li data-t="43"><b>HTML</b> dengan posisi teks dan gambar yang mengikuti PDF asli.</li>
+<li data-t="44"><b>Markdown</b> berisi judul, paragraf, daftar, dan referensi gambar.</li>
+<li data-t="45"><b>Gambar</b> yang ada di halaman diekstrak sebagai resource.</li>
+<li data-t="46"><b>DOCX</b> satu section per halaman dengan ukuran halaman yang sama.</li>
+</ul>
+</div>
+<pre aria-label="Contoh struktur folder hasil ekspor" class="out"><u>resep_makanan/</u>
 ├─ <u>page2/</u>
 │  ├─ <em>index.html</em>
 │  ├─ <em>index.md</em>
@@ -231,49 +240,97 @@ footer{padding:34px 0 46px;color:var(--muted);font-size:14px;text-align:center}
 │  ├─ <em>index.md</em>
 │  └─ images/
 └─ <u>page5/</u> …</pre>
-  </div>
+</div>
 </section>
-
 <!-- AKTIVASI -->
-<section id="aktivasi" class="alt" aria-labelledby="t-akt">
-  <div class="wrap">
-    <div class="eyebrow">Aktivasi</div>
-    <h2 id="t-akt">Aktivasi sederhana, per komputer</h2>
-    <p class="sub">Fitur menerapkan hasil Edit Page dan Export DOCX memerlukan activation key yang unik untuk komputer Anda.</p>
-    <div class="steps">
-      <div class="step"><h3>Salin Hardware ID</h3><p>Saat aplikasi meminta aktivasi, salin Hardware ID komputer Anda atau kirim langsung lewat tombol email di dialog.</p></div>
-      <div class="step"><h3>Terima activation key</h3><p>Pengembang membuat activation key berdasarkan Hardware ID tersebut dan mengirimkannya kepada Anda.</p></div>
-      <div class="step"><h3>Masukkan &amp; selesai</h3><p>Tempel key atau muat file <code>serial.key</code>. Key tersimpan, jadi Anda tidak perlu mengisinya lagi.</p></div>
-    </div>
-  </div>
+<section aria-labelledby="t-akt" class="alt" id="aktivasi">
+<div class="wrap">
+<div class="eyebrow" data-t="47">Aktivasi</div>
+<h2 data-t="48" id="t-akt">Aktivasi sederhana, per komputer</h2>
+<p class="sub" data-t="49">Fitur menerapkan hasil Edit Page dan Export DOCX memerlukan activation key yang unik untuk komputer Anda.</p>
+<div class="steps">
+<div class="step"><h3 data-t="50">Salin Hardware ID</h3><p data-t="51">Saat aplikasi meminta aktivasi, salin Hardware ID komputer Anda atau kirim langsung lewat tombol email di dialog. Ingin kirim manual? Gunakan alamat email di bawah dan sertakan Hardware ID lengkap.</p></div>
+<div class="step"><h3 data-t="52">Terima activation key</h3><p data-t="53">Pengembang membuat activation key berdasarkan Hardware ID tersebut dan mengirimkannya kepada Anda.</p></div>
+<div class="step"><h3 data-t="54">Masukkan &amp; selesai</h3><p data-t="55">Tempel key atau muat file <code>serial.key</code>. Key tersimpan, jadi Anda tidak perlu mengisinya lagi.</p></div>
+</div>
+<div class="mail">
+<p data-t="56">Ingin mengirim email secara manual? Kirim <b>Hardware ID lengkap</b> (salin dari dialog Activation) ke alamat berikut:</p>
+<div class="row"><code id="mailaddr">putraadiatma.64bit@gmail.com</code><button class="btn ghost sm" data-t="86" id="copymail" type="button">Salin email</button><a class="btn primary sm" data-t="57" href="mailto:putraadiatma.64bit@gmail.com?subject=Request%20License%20Key">Buka aplikasi email</a></div>
+</div>
+</div>
 </section>
-
+<!-- HARGA -->
+<section aria-labelledby="t-harga" id="harga">
+<div class="wrap" style="text-align:center">
+<div class="eyebrow" data-t="58">Harga aktivasi</div>
+<h2 data-t="59" id="t-harga">Biaya aktivasi yang jelas</h2>
+<p class="sub" data-t="60" style="margin-inline:auto">Activation key bersifat unik untuk setiap komputer. Hubungi pengembang melalui email untuk pembayaran dan permintaan activation key.</p>
+<div class="price">
+<div class="pc hl"><div class="eyebrow" data-t="61">Indonesia</div><div class="amt" data-t="62">Rp 50.000</div><p data-t="63">per aktivasi (satu komputer)</p><a class="btn primary sm" data-t="64" href="mailto:putraadiatma.64bit@gmail.com?subject=Request%20License%20Key">Minta aktivasi</a></div>
+<div class="pc"><div class="eyebrow" data-t="65">Luar negeri</div><div class="amt" data-t="66">US$ 5,99</div><p data-t="67">per aktivasi (satu komputer)</p><a class="btn primary sm" data-t="68" href="mailto:putraadiatma.64bit@gmail.com?subject=Request%20License%20Key">Minta aktivasi</a></div>
+</div>
+</div>
+</section>
 <!-- FAQ -->
-<section id="faq" aria-labelledby="t-faq">
-  <div class="wrap">
-    <div style="text-align:center"><div class="eyebrow">FAQ</div><h2 id="t-faq">Pertanyaan yang sering diajukan</h2></div>
-    <div class="faq">
-      <details><summary>Sistem operasi apa yang didukung?</summary><p>PDF Wizard adalah aplikasi desktop untuk Windows, tersedia sebagai versi 32-bit dan 64-bit.</p></details>
-      <details><summary>Apakah file saya diunggah ke internet?</summary><p>Tidak. Seluruh pemrosesan terjadi di komputer Anda, dan verifikasi activation key juga dilakukan secara lokal.</p></details>
-      <details><summary>Format apa yang bisa dibuka?</summary><p>File PDF (yang tidak diproteksi password) serta gambar PNG, JPEG, dan BMP, yang otomatis menjadi halaman PDF.</p></details>
-      <details><summary>Apakah teks dari PDF hasil scan bisa diedit?</summary><p>Tidak. PDF hasil scan berisi gambar, bukan teks, sehingga yang bisa diedit hanyalah gambarnya.</p></details>
-      <details><summary>Seberapa mirip hasil DOCX dengan PDF-nya?</summary><p>Tata letak dijaga: posisi, ukuran, dan warna teks serta gambar mengikuti PDF. Karena Word memakai font sendiri, lebar teks bisa sedikit berbeda, dan tabel menjadi teks berposisi, bukan tabel Word.</p></details>
-    </div>
-  </div>
+<section aria-labelledby="t-faq" id="faq">
+<div class="wrap">
+<div style="text-align:center"><div class="eyebrow" data-t="69">FAQ</div><h2 data-t="70" id="t-faq">Pertanyaan yang sering diajukan</h2></div>
+<div class="faq">
+<details><summary data-t="71">Berapa biaya aktivasi?</summary><p data-t="72">Rp 50.000 untuk pengguna di Indonesia dan US$ 5,99 untuk pengguna di luar negeri, per aktivasi (satu komputer).</p></details>
+<details><summary data-t="73">Sistem operasi apa yang didukung?</summary><p data-t="74">PDF Wizard adalah aplikasi desktop untuk Windows, tersedia sebagai versi 32-bit dan 64-bit.</p></details>
+<details><summary data-t="75">Apakah file saya diunggah ke internet?</summary><p data-t="76">Tidak. Seluruh pemrosesan terjadi di komputer Anda, dan verifikasi activation key juga dilakukan secara lokal.</p></details>
+<details><summary data-t="77">Format apa yang bisa dibuka?</summary><p data-t="78">File PDF (yang tidak diproteksi password) serta gambar PNG, JPEG, dan BMP, yang otomatis menjadi halaman PDF.</p></details>
+<details><summary data-t="79">Apakah teks dari PDF hasil scan bisa diedit?</summary><p data-t="80">Tidak. PDF hasil scan berisi gambar, bukan teks, sehingga yang bisa diedit hanyalah gambarnya.</p></details>
+<details><summary data-t="81">Seberapa mirip hasil DOCX dengan PDF-nya?</summary><p data-t="82">Tata letak dijaga: posisi, ukuran, dan warna teks serta gambar mengikuti PDF. Karena Word memakai font sendiri, lebar teks bisa sedikit berbeda, dan tabel menjadi teks berposisi, bukan tabel Word.</p></details>
+</div>
+</div>
 </section>
-
 <!-- CTA AKHIR -->
 <section style="padding-top:0">
-  <div class="wrap">
-    <div class="final">
-      <h2>Siap merapikan PDF Anda?</h2>
-      <p>Unduh PDF Wizard dan mulai menyusun, mengedit, serta mengonversi dokumen Anda hari ini.</p>
-      <a class="btn lg" href="https://bit.ly/4AuMDwj" target="_blank" rel="noopener">⬇ Unduh Sekarang</a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="final">
+<h2 data-t="83">Siap merapikan PDF Anda?</h2>
+<p data-t="84">Unduh PDF Wizard dan mulai menyusun, mengedit, serta mengonversi dokumen Anda hari ini.</p>
+<a class="btn lg" data-t="85" href="https://bit.ly/4AuMDwj" rel="noopener" target="_blank">⬇ Unduh Sekarang</a>
+</div>
+</div>
 </section>
 </main>
-
-<footer><div class="wrap">© 2026 PDF Wizard. Seluruh hak dilindungi. Windows adalah merek dagang Microsoft Corporation; PDF Wizard tidak berafiliasi dengan Microsoft.</div></footer>
+<footer><div class="wrap" data-t="88">© 2026 PDF Wizard. Seluruh hak dilindungi. Windows adalah merek dagang Microsoft Corporation; PDF Wizard tidak berafiliasi dengan Microsoft.</div></footer>
+<script>
+(function(){
+var EN=["Skip to content", "Features", "How it works", "Export", "Activation", "Pricing", "FAQ", "Download", "Windows desktop app · Offline", "Manage, edit, and convert PDFs <span>in one app</span>", "PDF Wizard helps you rearrange pages, edit the text and images inside a PDF, and export to DOCX, HTML, or Markdown. Everything is processed on your own computer.", "⬇ Download PDF Wizard", "See features", "Available for Windows (32-bit and 64-bit). Applying Edit Page changes and Export DOCX require a paid activation key (see <a href=\"#harga\">activation pricing</a>).", "No file uploads", "Fast &amp; lightweight", "Light &amp; dark themes", "Features", "Everything you need to work with PDFs", "From tidying page order to editing the content, without switching between apps.", "Arrange pages visually", "See each page as a thumbnail. Drag to reorder, select odd/even pages, reverse the order, or swap odd and even pages, with full Undo/Redo.", "Merge &amp; split", "Combine several PDFs and images (PNG, JPEG, BMP). Extract the selected pages into one PDF, or split into one file per page.", "Edit text and images inside the PDF", "Change the content, font, size, and color of text; add, delete, or move it. Move, resize, rotate, or replace images. Zoom is included for precision.", "Export to DOCX", "Each page becomes one Word page with the layout preserved. Text stays selectable and editable in Word.", "Export to HTML &amp; Markdown", "The “To Data” button creates a folder per page containing <code>index.html</code>, <code>index.md</code>, and a folder of extracted images.", "Rotate, crop, scale, booklet", "Rotate, crop, and scale selected pages. Add overlays/underlays, create a fold-and-print booklet, and edit document metadata.", "How it works", "Three steps, done", "Open &amp; arrange", "Drag PDF or image files into the window, then tidy the pages with drag &amp; drop, rotation, crop, or delete.", "Edit the page", "Select one page and open Edit Page to change the text and images right inside the page.", "Save or export", "Save as a new PDF, or export to DOCX, HTML, and Markdown as you need.", "Data export", "From PDF to formats you can work with", "Choose the pages you want, then click <b>To Data</b>. The result is neatly organized per page.", "<b>HTML</b> with text and image positions that follow the original PDF.", "<b>Markdown</b> with headings, paragraphs, lists, and image references.", "<b>Images</b> found on the page are extracted as resources.", "<b>DOCX</b> with one section per page at the same page size.", "Activation", "Simple activation, per computer", "Applying Edit Page changes and Export DOCX require an activation key that is unique to your computer.", "Copy the Hardware ID", "When the app asks for activation, copy your computer’s Hardware ID or send it directly with the email button in the dialog. Prefer to email manually? Use the address below and include your full Hardware ID.", "Receive the activation key", "The developer creates an activation key from that Hardware ID and sends it to you.", "Enter it &amp; done", "Paste the key or load the <code>serial.key</code> file. The key is saved, so you won’t need to enter it again.", "Want to send an email manually? Send your <b>full Hardware ID</b> (copy it from the Activation dialog) to this address:", "Open email app", "Activation pricing", "Clear activation pricing", "An activation key is unique to each computer. Contact the developer by email to pay and request your activation key.", "Indonesia", "Rp 50,000", "per activation (one computer)", "Request activation", "International", "US$ 5.99", "per activation (one computer)", "Request activation", "FAQ", "Frequently asked questions", "How much does activation cost?", "Rp 50,000 for users in Indonesia and US$ 5.99 for users outside Indonesia, per activation (one computer).", "Which operating systems are supported?", "PDF Wizard is a desktop app for Windows, available as 32-bit and 64-bit versions.", "Are my files uploaded to the internet?", "No. All processing happens on your computer, and activation key verification is also done locally.", "Which formats can I open?", "PDF files (not password-protected) and PNG, JPEG, and BMP images, which automatically become PDF pages.", "Can text in a scanned PDF be edited?", "No. A scanned PDF contains images, not text, so only the images can be edited.", "How close is the DOCX to the PDF?", "The layout is preserved: the position, size, and color of text and images follow the PDF. Because Word uses its own fonts, text widths may differ slightly, and tables become positioned text rather than Word tables.", "Ready to tidy up your PDFs?", "Download PDF Wizard and start arranging, editing, and converting your documents today.", "⬇ Download now", "Copy email", "6 pages · 2 sources · Ready", "© 2026 PDF Wizard. All rights reserved. Windows is a trademark of Microsoft Corporation; PDF Wizard is not affiliated with Microsoft."];
+var META={id:{t:"PDF Wizard – Kelola, Edit, dan Konversi PDF di Windows",d:"PDF Wizard: aplikasi desktop Windows untuk menyusun halaman PDF, mengedit teks dan gambar di dalam PDF, lalu mengekspor ke DOCX, HTML, dan Markdown. Berjalan offline."},
+en:{t:"PDF Wizard – Manage, Edit, and Convert PDFs on Windows",d:"PDF Wizard: a Windows desktop app to arrange PDF pages, edit the text and images inside a PDF, and export to DOCX, HTML, and Markdown. Works offline."}};
+var ARIA=[["nav[aria-label]","Main navigation"],[".app","Illustration of the PDF Wizard window: a grid of page thumbnails with a toolbar on top"],["pre.out","Example of the exported folder structure"]];
+var els=[].slice.call(document.querySelectorAll("[data-t]"));
+els.forEach(function(e){e.setAttribute("data-id",e.innerHTML);});
+var aria=ARIA.map(function(a){var e=document.querySelector(a[0]);return {e:e,id:e.getAttribute("aria-label"),en:a[1]};});
+var cur="id",timer;
+function meta(name,attr,v){var m=document.querySelector("meta["+attr+"=\""+name+"\"]");if(m)m.setAttribute("content",v);}
+function setLang(l){
+  cur=l;document.documentElement.lang=l;
+  els.forEach(function(e){e.innerHTML=l==="en"?EN[+e.getAttribute("data-t")]:e.getAttribute("data-id");});
+  aria.forEach(function(a){a.e.setAttribute("aria-label",a[l]);});
+  document.title=META[l].t;meta("description","name",META[l].d);meta("og:title","property",META[l].t);meta("og:description","property",META[l].d);
+  [].forEach.call(document.querySelectorAll(".lang button"),function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-lang")===l));});
+}
+[].forEach.call(document.querySelectorAll(".lang button"),function(b){b.addEventListener("click",function(){var l=b.getAttribute("data-lang");setLang(l);try{localStorage.setItem("pw-lang",l);}catch(x){}});});
+function copyText(t){
+  if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t);
+  return new Promise(function(ok,no){var a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy")?ok():no();}catch(x){no();}document.body.removeChild(a);});
+}
+var cb=document.getElementById("copymail");
+cb.addEventListener("click",function(){
+  copyText(document.getElementById("mailaddr").textContent).then(function(){
+    cb.textContent=cur==="en"?"Copied ✓":"Tersalin ✓";clearTimeout(timer);timer=setTimeout(function(){setLang(cur);},1800);
+  },function(){cb.textContent=cur==="en"?"Select & copy manually":"Salin manual";});
+});
+var saved=null;try{saved=localStorage.getItem("pw-lang");}catch(x){}
+var start=saved||((navigator.language||"id").toLowerCase().indexOf("id")===0?"id":"en");
+aria.forEach(function(a){a.id=a.id;});
+setLang(start);
+})();
+</script>
 </body>
 </html>
